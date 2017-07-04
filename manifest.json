@@ -1,0 +1,32 @@
+{
+    "manifest_version": 2,
+    "name": "Broadcast Helper",
+    "version": "0.1.0",
+    "browser_action": {
+        "default_title": "Stay foolish, stay Hungry.",
+        "default_icon": "icon.png"
+    },
+
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+
+    "permissions": [
+        "tabs",
+        "management",
+        "*://*.twitch.tv/*",
+        "*://*.douyu.com/*"
+    ],
+
+    "content_scripts": [
+        {
+            "matches": [
+                "*://www.twitch.tv/*",
+                "*://www.douyu.com/*"
+            ],
+            "js": ["jquery-3.2.1.slim.min.js", "content.js"],
+            "run_at": "document_end"
+        }
+    ]
+}
