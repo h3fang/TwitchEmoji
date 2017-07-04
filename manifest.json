@@ -3,7 +3,7 @@
     "name": "Broadcast Helper",
     "version": "0.1.0",
     "browser_action": {
-        "default_title": "Stay foolish, stay Hungry.",
+        "default_title": "Stay foolish, stay hungry.",
         "default_icon": "icon.png"
     },
 

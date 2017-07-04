@@ -1,5 +1,7 @@
 var LOG_TAG = 'Broadcast Helper - content.js : ';
 
+var chat = {};
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -10,26 +12,20 @@ function diableDouyuEffects() {
     $("[data-shield-type*='smallgift'][data-shield-status*='0']").click();
 }
 
-async function loadTwitchHelper() {
+function loadTwitchHelper() {
     var textareas = $(".js-chat_input.chat_text_input.form__input.ember-text-area.ember-view");
 
-    var count = 0;
-
-	// trying to get the chat element
-    while (textareas.length == 0 && count <= 10) {
-        textareas = $(".js-chat_input.chat_text_input.form__input.ember-text-area.ember-view");
-        await sleep(1000);
-        count = count + 1;
-    }
-
-    printToConsole(textareas.length);
-
-    if (textareas.length == 0) {
-        printToConsole("Max tries reached, bot stopped.")
+    if (textareas.length != 1) {
+        printToConsole("Unable to locate chat, " + textareas.length + " matching instances found.")
         return false;
     }
 
-    var chat = textareas[0];
+    if (chat == textareas[0]) {
+        return true;
+    }
+    else {
+        chat = textareas[0];
+    }
 
     chat.addEventListener('keyup', function() {
         var str = chat.value;
@@ -79,7 +75,10 @@ function printToConsole(msg) {
     console.log(LOG_TAG + msg);
 };
 
-$(document).ready(diableDouyuEffects);
+$(document).ready(function () {
+    // loadTwitchHelper();
+    diableDouyuEffects();
+});
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
