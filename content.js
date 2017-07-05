@@ -1,4 +1,4 @@
-var LOG_TAG = 'Broadcast Helper - content.js : ';
+var LOG_TAG = "Broadcast Helper: ";
 
 var chat = {};
 
@@ -10,13 +10,15 @@ function diableDouyuEffects() {
     $("[data-shield-type*='message'][data-shield-status*='0']").click();
     $("[data-shield-type*='videoBroadcast'][data-shield-status*='0']").click();
     $("[data-shield-type*='smallgift'][data-shield-status*='0']").click();
+    
+    console.log(LOG_TAG + "End of diableDouyuEffects()");
 }
 
 function loadTwitchHelper() {
     var textareas = $(".js-chat_input.chat_text_input.form__input.ember-text-area.ember-view");
 
     if (textareas.length != 1) {
-        printToConsole("Unable to locate chat, " + textareas.length + " matching instances found.")
+        console.error(LOG_TAG + "Unable to locate chat, " + textareas.length + " matching instances found.")
         return false;
     }
 
@@ -66,13 +68,9 @@ function loadTwitchHelper() {
         chat.scrollTop = chat.scrollHeight;
     }, false);
 
-    printToConsole('Bot Loaded!');
+    console.log(LOG_TAG + "Loaded twitch helper!");
 
 	return true;
-};
-
-function printToConsole(msg) {
-    console.log(LOG_TAG + msg);
 };
 
 $(document).ready(function () {
