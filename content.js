@@ -73,10 +73,10 @@ function loadTwitchHelper() {
 	return true;
 };
 
-$(document).ready(function () {
+window.onload = function() {
     // loadTwitchHelper();
     diableDouyuEffects();
-});
+};
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
