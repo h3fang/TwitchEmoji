@@ -74,20 +74,16 @@ function loadTwitchHelper() {
 };
 
 window.onload = function() {
-    // loadTwitchHelper();
+    //loadTwitchHelper();
     diableDouyuEffects();
 };
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-        printToConsole(sender.tab ?
-            "from a content script:" + sender.tab.url :
-            "from the extension, url: " + request.url);
-        if (request.updated) {
-            loadTwitchHelper();
-        }
+        console.log(LOG_TAG + request.url + " updated");
+        var r = loadTwitchHelper();
         sendResponse({
-            farewell: "goodbye"
+            result: r
         });
     }
 );
