@@ -37,9 +37,11 @@ function loadTwitchHelper() {
         str = str.replace(/\/an/gi, 'ANELE ');
         str = str.replace(/\/ba/gi, 'BabyRage ');
         str = str.replace(/\/bi/gi, 'BibleThump ');
+        str = str.replace(/\/bl/gi, 'BlessRNG ');
         str = str.replace(/\/bp/gi, 'BabyRage PJSalt ');
         str = str.replace(/\/br/gi, 'BrokeBack ');
         str = str.replace(/\/da/gi, 'DansGame ');
+        str = str.replace(/\/du/gi, 'duDudu ');
         str = str.replace(/\/el/gi, 'EleGiggle ');
         str = str.replace(/\/fa/gi, 'FailFish ');
         str = str.replace(/\/fr/gi, 'FrankerZ ');
@@ -57,6 +59,7 @@ function loadTwitchHelper() {
         str = str.replace(/\/sm/gi, 'SMOrc ');
         str = str.replace(/\/ss/gi, 'SSSsss ');
         str = str.replace(/\/sw/gi, 'SwiftRage ');
+        str = str.replace(/\/tt/gi, 'TTours ');
         str = str.replace(/\/wu/gi, 'WutFace ');
 
         str = str.replace(/\/yoke/gi, '/me BabyRage WHAT A YOKE BabyRage');
