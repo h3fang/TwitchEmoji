@@ -1,4 +1,4 @@
-var LOG_TAG = "Broadcast Helper: ";
+var LOG_TAG = "Stream Helper: ";
 
 var chat = {};
 
@@ -10,23 +10,29 @@ function diableDouyuEffects() {
     $("[data-shield-type*='message'][data-shield-status*='0']").click();
     $("[data-shield-type*='videoBroadcast'][data-shield-status*='0']").click();
     $("[data-shield-type*='smallgift'][data-shield-status*='0']").click();
-    
+
     console.log(LOG_TAG + "End of diableDouyuEffects()");
 }
 
-function loadTwitchHelper() {
-    var textareas = $(".js-chat_input.chat_text_input.form__input.ember-text-area.ember-view");
+function getChat() {
+    var textareas = $(".tw-textarea.tw-textarea--no-resize:first");
 
     if (textareas.length != 1) {
         console.error(LOG_TAG + "Unable to locate chat, " + textareas.length + " matching instances found.")
         return false;
     }
 
-    if (chat == textareas[0]) {
+    return textareas[0];
+}
+
+function loadTwitchHelper() {
+    var chat0 = getChat();
+
+    if (chat == chat0) {
         return true;
     }
     else {
-        chat = textareas[0];
+        chat = chat0;
     }
 
     chat.addEventListener('keyup', function() {
@@ -45,9 +51,11 @@ function loadTwitchHelper() {
         str = str.replace(/\/el/gi, 'EleGiggle ');
         str = str.replace(/\/fa/gi, 'FailFish ');
         str = str.replace(/\/fr/gi, 'FrankerZ ');
+        str = str.replace(/\/je/gi, 'Jebaited ');
         str = str.replace(/\/ka/gi, 'Kappa ');
         str = str.replace(/\/ke/gi, 'Keepo ');
         str = str.replace(/\/kp/gi, 'KappaPride ');
+        str = str.replace(/\/ko/gi, 'KonCha ');
         str = str.replace(/\/kr/gi, 'Kreygasm ');
         str = str.replace(/\/mi/gi, 'MingLee ');
         str = str.replace(/\/mr/gi, 'MrDestructoid ');
@@ -59,17 +67,20 @@ function loadTwitchHelper() {
         str = str.replace(/\/sm/gi, 'SMOrc ');
         str = str.replace(/\/ss/gi, 'SSSsss ');
         str = str.replace(/\/sw/gi, 'SwiftRage ');
+        str = str.replace(/\/te/gi, 'TehePelo ');
+        str = str.replace(/\/tp/gi, 'TPFufun ');
         str = str.replace(/\/tt/gi, 'TTours ');
         str = str.replace(/\/wu/gi, 'WutFace ');
 
-        str = str.replace(/\/yoke/gi, '/me BabyRage WHAT A YOKE BabyRage');
         str = str.replace(/\/lucky/gi, '/me BabyRage NEVER LUCKY BabyRage');
         str = str.replace(/\/snipe/gi, "༼ຈل͜ຈ༽ﾉ·︻̷┻̿═━一 I'VE  GOT THE  STREAM IN MY SIGHTS.");
         str = str.replace(/\/shoot/gi, "SwiftRage =ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿  BibleThump");
         str = str.replace(/\/tank/gi, "...... █ █ Kappa █ █ ]▄▄▄▄▄▄▄ ..............▂▄▅█████████▅▄▃▂ .............███████████████████] .............◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤");
+        str = str.replace(/\/weeb/gi, 'Any weebs here? KonCha KonCha KonCha');
+        str = str.replace(/\/fire/gi, 'PowerUpL TehePelo PowerUpR');
         chat.value = str;
         chat.scrollTop = chat.scrollHeight;
-    }, false);
+    }, true);
 
     console.log(LOG_TAG + "Loaded twitch helper!");
 
