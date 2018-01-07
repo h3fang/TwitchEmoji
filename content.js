@@ -35,7 +35,7 @@ function loadTwitchHelper() {
         chat = chat0;
     }
 
-    chat.addEventListener('keyup', function() {
+    chat.addEventListener('input', function() {
         var str = chat.value;
         //printToConsole(str);
 
