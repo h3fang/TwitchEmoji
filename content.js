@@ -1,11 +1,6 @@
 var LOG_TAG = "Stream Helper: ";
 
-var chat = {};
 var emotes = [];
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 function getTwitchEmotes() {
     emotes = [];
@@ -33,22 +28,21 @@ function getChat() {
 
     if (textareas.length != 1) {
         console.error(LOG_TAG + "Unable to locate chat, " + textareas.length + " matching instances found.")
-        return false;
+        return null;
     }
 
     return textareas[0];
 }
 
 function loadTwitchHelper() {
-    getTwitchEmotes();
+    // getTwitchEmotes();
 
-    var chat0 = getChat();
+    // If multiple identical EventListeners are registered on the same EventTarget with the same parameters, the duplicate instances are discarded. They do not cause the EventListener to be called twice, and they do not need to be removed manually with the removeEventListener method.
+    // See https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+    var chat = getChat();
 
-    if (chat == chat0) {
-        return true;
-    }
-    else {
-        chat = chat0;
+    if (!chat) {
+        return false;
     }
 
     chat.addEventListener('input', function() {
