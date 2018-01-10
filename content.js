@@ -29,7 +29,7 @@ function diableDouyuEffects() {
 }
 
 function getChat() {
-    var textareas = $(".tw-textarea.tw-textarea--no-resize:first");
+    var textareas = $("textarea[placeholder='Send a message']:first")
 
     if (textareas.length != 1) {
         console.error(LOG_TAG + "Unable to locate chat, " + textareas.length + " matching instances found.")
