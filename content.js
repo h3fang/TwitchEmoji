@@ -16,7 +16,7 @@ function getTwitchEmotes() {
             emotes.push(data[e].code);
         }
 
-        console.log(LOG_TAG + emotes);
+        // console.log(LOG_TAG + emotes);
     });
 }
 
@@ -53,7 +53,24 @@ function loadTwitchHelper() {
 
     chat.addEventListener('input', function() {
         var str = chat.value;
-        //printToConsole(str);
+
+        // var emotesStr = emotes.toString();
+        // var re = /\/(\w+)\s/i;
+        // var match = str.match(re);
+        // var c = 0;
+        // while (match && c < 10) {
+        //     console.log(match);
+        //     var m = emotesStr.match(new RegExp('\\b' + match[1] + '\\w+\\b', 'gi'));
+        //     console.log(m);
+        //     if (m.length == 1) {
+        //         str.replace(match[0], m[0] + ' ');
+        //     }
+        //     else {
+        //         break;
+        //     }
+        //     match = str.match(re);
+        //     c++;
+        // }
 
         str = str.replace(/\/4/gi, '4Head ');
         str = str.replace(/\/an/gi, 'ANELE ');
@@ -76,7 +93,7 @@ function loadTwitchHelper() {
         str = str.replace(/\/mi/gi, 'MingLee ');
         str = str.replace(/\/mr/gi, 'MrDestructoid ');
         str = str.replace(/\/op/gi, 'OpieOP ');
-        str = str.replace(/\/os/gi, 'OSfrog ');
+        str = str.replace(/\/os/gi, 'OPFrog ');
         str = str.replace(/\/pj/gi, 'PJSalt ');
         str = str.replace(/\/po/gi, 'PogChamp ');
         str = str.replace(/\/re/gi, 'ResidentSleeper ');
@@ -86,13 +103,14 @@ function loadTwitchHelper() {
         str = str.replace(/\/te/gi, 'TehePelo ');
         str = str.replace(/\/tp/gi, 'TPFufun ');
         str = str.replace(/\/tt/gi, 'TTours ');
+        str = str.replace(/\/vo/gi, 'VoHiYo ');
         str = str.replace(/\/wu/gi, 'WutFace ');
 
         str = str.replace(/\/lucky/gi, '/me BabyRage NEVER LUCKY BabyRage');
         str = str.replace(/\/snipe/gi, "༼ຈل͜ຈ༽ﾉ·︻̷┻̿═━一 I'VE  GOT THE  STREAM IN MY SIGHTS.");
         str = str.replace(/\/shoot/gi, "SwiftRage =ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿  BibleThump");
         str = str.replace(/\/tank/gi, "...... █ █ Kappa █ █ ]▄▄▄▄▄▄▄ ..............▂▄▅█████████▅▄▃▂ .............███████████████████] .............◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤");
-        str = str.replace(/\/weeb/gi, 'Any weebs here? KonCha KonCha KonCha');
+        str = str.replace(/\/weeb/gi, '<3 TehePelo KonCha TPFufun VoHiYo <3');
         str = str.replace(/\/fire/gi, 'PowerUpL TehePelo PowerUpR');
         chat.value = str;
         chat.scrollTop = chat.scrollHeight;
