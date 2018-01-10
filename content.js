@@ -1,9 +1,23 @@
 var LOG_TAG = "Stream Helper: ";
 
 var chat = {};
+var emotes = [];
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function getTwitchEmotes() {
+    emotes = [];
+
+    // 'https://twitchemotes.com/api_cache/v3/global.json'
+    $.getJSON(chrome.extension.getURL("emotes.json"), function(data) {
+        for (var e in data) {
+            emotes.push(data[e].code);
+        }
+
+        console.log(LOG_TAG + emotes);
+    });
 }
 
 function diableDouyuEffects() {
@@ -26,6 +40,8 @@ function getChat() {
 }
 
 function loadTwitchHelper() {
+    getTwitchEmotes();
+
     var chat0 = getChat();
 
     if (chat == chat0) {

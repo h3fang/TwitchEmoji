@@ -18,14 +18,16 @@
         "*://*.douyu.com/*"
     ],
 
-    "content_scripts": [
-        {
-            "matches": [
-                "*://www.twitch.tv/*",
-                "*://www.douyu.com/*"
-            ],
-            "js": ["jquery-3.2.1.min.js", "content.js"],
-            "run_at": "document_end"
-        }
-    ]
+    "web_accessible_resources": [
+        "emotes.json"
+    ],
+
+    "content_scripts": [{
+        "matches": [
+            "*://www.twitch.tv/*",
+            "*://www.douyu.com/*"
+        ],
+        "js": ["jquery-3.2.1.min.js", "content.js"],
+        "run_at": "document_end"
+    }]
 }
