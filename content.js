@@ -104,7 +104,7 @@ function loadTwitchHelper() {
         str = str.replace(/\/snipe/gi, "༼ຈل͜ຈ༽ﾉ·︻̷┻̿═━一 I'VE  GOT THE  STREAM IN MY SIGHTS.");
         str = str.replace(/\/shoot/gi, "SwiftRage =ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿  BibleThump");
         str = str.replace(/\/tank/gi, "...... █ █ Kappa █ █ ]▄▄▄▄▄▄▄ ..............▂▄▅█████████▅▄▃▂ .............███████████████████] .............◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤");
-        str = str.replace(/\/weeb/gi, '<3 TehePelo KonCha TPFufun VoHiYo <3');
+        str = str.replace(/\/weeb/gi, '<3 TehePelo KonCha TPFufun PunOko VoHiYo <3');
         str = str.replace(/\/fire/gi, 'PowerUpL TehePelo PowerUpR');
         chat.value = str;
         chat.scrollTop = chat.scrollHeight;
